@@ -76,6 +76,12 @@ body {
     display: block;
     float: right;
     margin-top: 7px; }
+  .post .delete {
+    display: block;
+    float: right;
+    margin-top: 7px;
+    color: red;
+  }
 
 .comments {
   list-style-type: none;

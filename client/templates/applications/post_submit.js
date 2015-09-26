@@ -11,6 +11,10 @@ Template.postSubmit.events({
       // display the error to the user and abort
       if (error)
         return alert(error.reason);
+
+      if (result.postExists) //calls on the postExists attribute of posts.js line 14 
+        alert("This link has already been uploaded to the server.");
+
       Router.go('postPage', {_id: result._id});  
     });
   }
