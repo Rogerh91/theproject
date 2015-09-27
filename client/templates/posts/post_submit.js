@@ -7,6 +7,11 @@ Template.postSubmit.events({
       title: $(e.target).find('[name=title]').val()
     };
 
+    var errors = validatePost(post);
+      if (errors.title || errors.url)
+        return Session.set('postSubmitErrors', errors);
+      
+
     Meteor.call('postInsert', post, function(error, result) {
       // display the error to the user and abort
       if (error)
@@ -28,16 +33,3 @@ Template.postSubmit.events({
 //Line 7 does the same with the label name "title"
 //Line 10 places the new value into the posts database and take out the id of post
 //Line 11 goes to the defined page. 
-
-Template.postSubmit.onCreated(function () {
-  Session.set('postSubmitErrors', {});
-});
-
-Template.postSubmit.helpers({
-  errorMessage: function(field) {
-    return Session.get('postSubmitErrors')[field]; 
-  },
-  errorClass: function(field) {
-    return !! Session.get('postSubmitErrors')[field] ? 'has-error' : ''; 
-  }
-})

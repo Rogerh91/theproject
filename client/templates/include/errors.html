@@ -1,0 +1,16 @@
+<!--you can put two templates in one file but it does get messy if you do this too often.--> 
+
+<template name = "errors">
+  <div class = "errors">
+    {{#each errors}}
+      {{> error}}
+    {{/each}}
+  </div>
+</template>
+
+<template name = "error">
+  <div class = "alert alert-danger" role ="alert">
+    <button type = "button" class = "close" data-dismiss = "alert">Dismiss</button>
+      {{message}}
+  </div>
+</template>

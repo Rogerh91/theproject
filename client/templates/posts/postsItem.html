@@ -8,6 +8,6 @@
       </p>
     </div>
     <a href="{{pathFor 'postPage'}}" class = "discuss btn btn-default">Discuss this item</a>
-    <a href="#" class = "delete btn btn-default">Delete this item</a>
+    {{#if ownPost}}<a href="#" class = "delete btn btn-default">Delete this item</a>{{/if}} 
   </div>
 </template>
