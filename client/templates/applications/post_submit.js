@@ -10,7 +10,7 @@ Template.postSubmit.events({
     Meteor.call('postInsert', post, function(error, result) {
       // display the error to the user and abort
       if (error)
-        return throwError(error.reason);
+        Errors.throw(error.reason);
 
       if (result.postExists) //calls on the postExists attribute of posts.js line 14 
         throwError("This link has already been uploaded to the server.");
