@@ -7,17 +7,27 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="{{pathFor 'postsList'}}">Microscope</a>
+      <a class="navbar-brand" href="{{pathFor 'home'}}">Rogerscope</a>
     </div>
     <div class="collapse navbar-collapse" id="navigation">
-      {{#if currentUser}}<ul class="nav navbar-nav navbar-right">
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="{{pathFor 'newPosts'}}">New Posts</a>
+      </li>
+      <li>
+        <a href="{{pathFor 'bestPosts'}}">Best Posts</a>
+      </li>
+      {{#if currentUser}}
         <li><a href="{{pathFor 'postSubmit'}}">Submit a post</a></li>
-        <li class="dropdown">
-        {{> notifications}}
-        </li>
-      </ul>{{/if}}
+      {{/if}}
+      </ul>
       <ul class="nav navbar-nav navbar-right">
         {{> loginButtons}}
+      {{#if currentUser}}
+      <li class="dropdown">
+        {{> notifications}}
+      </li>
+      {{/if}}
       </ul>
     </div>
   </nav>
